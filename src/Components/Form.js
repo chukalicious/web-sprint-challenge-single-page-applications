@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import styled from "styled-components"
 import * as yup from 'yup'
+import axios from 'axios'
 
 
 
@@ -88,6 +89,26 @@ const Form = () => {
                 ...errors,
                 [e.target.name]: err.errors[0]
             })
+        })
+    }
+
+    //listen for input changes 
+    const inputChange = (e) => {
+        e.persist()
+        const newOrder = {
+            ...orderState,
+            [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
+        }
+        validateOrder(e)
+        setOrderState(newOrder)
+    }
+
+    //sumbit order
+    const orderSubmit = (e) => {
+        e.preventDefault
+        axios.post('https://reqres.in/api/users', orderState)
+        .then((res) => {
+            console.log(res.data)
         })
     }
 
