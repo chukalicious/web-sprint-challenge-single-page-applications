@@ -112,25 +112,26 @@ const Form = () => {
             setOrdered(res.data)
             setOrderState({
                 size: '',
-        sauce: '',
-        pepperoni: false,
-        sausage: false,
-        bacon: false,
-        italian: false,
-        chicken: false,
-        onions: false,
-        pepper: false,
-        tomatoes: false,
-        olives: false,
-        roastedGarlic: false,
-        artichocke: false,
-        cheese: false,
-        pineapple: false,
-        extraCheese: false,
-        instructions: '',
-        quantity: ''
+                sauce: '',
+                pepperoni: false,
+                sausage: false,
+                bacon: false,
+                italian: false,
+                chicken: false,
+                onions: false,
+                pepper: false,
+                tomatoes: false,
+                olives: false,
+                roastedGarlic: false,
+                artichocke: false,
+                cheese: false,
+                pineapple: false,
+                extraCheese: false,
+                instructions: '',
+                quantity: ''
             })
         })
+        .catch(err => console.log(err))
     }
 
     return (
