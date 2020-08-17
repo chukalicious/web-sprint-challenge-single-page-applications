@@ -275,7 +275,9 @@ const Form = () => {
                 {/* gluten option would go here */}
                 <label htmlFor='instructions'>
                     Special Instructions: <br /> 
-                    <textarea placeholder="Anything else you'd like to add?" name="instructions" id="instructions" onChange={inputChange} value={orderState.instructions}/>
+                    <textarea
+                    data-cy="instructions"
+                    placeholder="Anything else you'd like to add?" name="instructions" id="instructions" onChange={inputChange} value={orderState.instructions}/>
                 </label>
                 <br /> 
                 <label htmlFor='quantity'>
@@ -292,9 +294,6 @@ const Form = () => {
                 <button data-cy="submit">Add to Order</button>
 
                 <pre>{JSON.stringify(ordered, null, 2)}</pre>
-
-
-
 
             </form>
         </div>
