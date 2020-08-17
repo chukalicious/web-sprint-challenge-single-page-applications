@@ -295,7 +295,7 @@ const Form = () => {
                 </label>
                 {errors.quantity.length > 0 ? <p>{errors.quantity}</p> : null}
                 <br /> 
-                <button data-cy="submit">Add to Order</button>
+                <button data-cy="submit" disabled={disabledButton}>Add to Order</button>
 
                 <pre>{JSON.stringify(ordered, null, 2)}</pre>
 
