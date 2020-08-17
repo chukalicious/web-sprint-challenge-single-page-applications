@@ -160,6 +160,7 @@ const Form = () => {
                     Your Name:
                     <input type="text" name="customerName" id="customerName" value={orderState.customerName} onChange={inputChange}/>
                 </label>
+                {errors.customerName.length > 0 ? <p>{errors.customerName}</p> : null}
                 <br />
                 <label htmlFor='size'>
                 Choice of Size:  
@@ -171,6 +172,7 @@ const Form = () => {
                     <option value="x-large">X-Large</option>
                 </select>
                 </label>
+                {errors.size.length > 0 ? <p>{errors.size}</p> : null}
                 <br /> 
                 Choice of Sauce: 
                 <br /> 
