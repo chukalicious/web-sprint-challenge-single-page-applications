@@ -7,6 +7,7 @@ const Form = () => {
 
     //form initial state
     const [orderState, setOrderState] = useState({
+        customerName: '',
         size: '',
         sauce: '',
         pepperoni: false,
@@ -29,6 +30,7 @@ const Form = () => {
 
     //errors state
     const [errors, setErrors] = useState({
+        customerName: '',
         size: '',
         sauce: '',
         pepperoni: '',
@@ -51,6 +53,7 @@ const Form = () => {
 
     //form schema
     const orderSchema = yup.object().shape({
+        customerName: yup.string().min(2, "Enter at least 2 characters for your name").required("Please provide your name"),
         size: yup.string().oneOf(["Personal", "Medium", "Large", "X-Large"], 'Please select a size'),
         sauce: yup.string().oneOf(['original', 'garlic', 'BBQ', 'alfredo'])/* required('Please choose a sauce'), */,
         pepperoni: yup.string().notRequired(),
@@ -125,6 +128,7 @@ const Form = () => {
             console.log(res.data)
             setOrdered(res.data)
             setOrderState({
+                customerName: '',
                 size: '',
                 sauce: '',
                 pepperoni: false,
@@ -152,6 +156,11 @@ const Form = () => {
         <div>
             <h2>Build your own Pizza</h2>
             <form onSubmit={orderSubmit}>
+                <label htmlFor='customerName'>
+                    Your Name:
+                    <input type="text" name="customerName" id="customerName" value={orderState.customerName} onChange={inputChange}/>
+                </label>
+                <br />
                 <label htmlFor='size'>
                 Choice of Size:  
                 <select name="size" id="size" onChange={inputChange} value={orderState.size}>
