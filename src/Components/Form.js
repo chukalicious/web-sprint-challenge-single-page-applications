@@ -1,13 +1,13 @@
 import React, { useEffect, useState} from 'react'
 import styled from "styled-components"
-
+import * as yup from 'yup'
 
 
 
 const Form = () => {
 
     //form initial state
-    const [order, setOrder] = useState({
+    const [orderState, setOrderState] = useState({
         size: '',
         sauce: '',
         pepperoni: false,
@@ -49,6 +49,47 @@ const Form = () => {
         instructions: '',
         quantity: ''
     })
+
+    //form schema
+    const orderSchema = yup.object().shape({
+        size: yup.string().oneOf(["Personal", "Medium", "Large", "X-Large"], 'Please select a size'),
+        sauce: yup.string().required('Please choose a sauce'),
+        quantity: yup.string().oneOf(['1', '2', '3', '4'], 'Please select how many pizzas you want')
+    })
+
+    //submit button state
+    const [disabledButton, setDisabledButton] = useState(true)
+
+    //new order state
+    const [ordered, setOrdered] = useState([])
+
+    //enable submit button if form is valid
+    useEffect(() => {
+        orderSchema.isValid(orderState)
+        .then((valid) => {
+            console.log("is valid?", valid)
+            setDisabledButton(!valid)
+
+        })
+    }, [orderState])
+
+    //validate order, check if it meets schema's criteria
+    const validateOrder = (e) => {
+        yup.reach(orderSchema, e.target.name)
+        .validate(e.target.value)
+        .then((valid) => {
+            setErrors({
+                ...errors,
+                [e.target.name]: ''
+            })
+        })
+        .catch((err) => {
+            setErrors({
+                ...errors,
+                [e.target.name]: err.errors[0]
+            })
+        })
+    }
 
     return (
         <div>
@@ -176,7 +217,7 @@ const Form = () => {
                     </select>
                 </label>
                 <br /> 
-                <button>Add to Order</button>
+                <button disabled={disabledButton}>Add to Order</button>
 
 
 
