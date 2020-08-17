@@ -87,7 +87,7 @@ const Form = () => {
             setDisabledButton(!valid)
 
         })
-    }, [orderState])
+    }, [orderState, orderSchema])
 
     //validate order, check if it meets schema's criteria
     const validateOrder = (e) => {
@@ -155,7 +155,7 @@ const Form = () => {
             <form onSubmit={orderSubmit}>
                 <label htmlFor='size'>
                 Choice of Size:  
-                <select name="size" id="size" onChange={inputChange}>
+                <select name="size" id="size" onChange={inputChange} value={orderState.size}>
                     <option>Please select a size:</option>
                     <option value="personal">Personal</option>
                     <option value="medium">Medium</option>
