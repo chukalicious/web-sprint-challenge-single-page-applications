@@ -3,6 +3,10 @@ import styled from "styled-components"
 import * as yup from 'yup'
 import axios from 'axios'
 
+const FormContainer = styled.div`
+  width: 75%;
+  margin: 2rem auto; 
+`
 const Form = () => {
 
     //form initial state
@@ -55,7 +59,7 @@ const Form = () => {
     const orderSchema = yup.object().shape({
         customerName: yup.string().required("Please provide your name").min(2, "Enter at least 2 characters for your name"),
         size: yup.string().oneOf(["personal", "medium", "large", "x-large"], "Please select a size for your pizza"),
-        sauce: yup.string().oneOf(['original', 'garlic', 'BBQ', 'alfredo'])/* required('Please choose a sauce'), */,
+        sauce: yup.string().oneOf(['original', 'garlic', 'BBQ', 'alfredo'],'Please choose a sauce'),
         pepperoni: yup.string().notRequired(),
         sausage: yup.string().notRequired(),
         bacon: yup.string().notRequired(),
@@ -153,7 +157,7 @@ const Form = () => {
     }
 
     return (
-        <div>
+        <FormContainer>
             <h2>Build your own Pizza</h2>
             <form onSubmit={orderSubmit}>
                 <label htmlFor='customerName'>
@@ -213,7 +217,7 @@ const Form = () => {
                 </label>
                 <br /> 
                 <label htmlFor="bacon">
-                    <input type="checkbox" name="bacon" id="bacon" onChange={inputChange} />
+                    <input type="checkbox" name="bacon" id="bacon" onChange={inputChange} checked={orderState.bacon} />
                     Canadian Bacon
                 </label>
                 <br /> 
@@ -296,7 +300,7 @@ const Form = () => {
                 <pre>{JSON.stringify(ordered, null, 2)}</pre>
 
             </form>
-        </div>
+        </FormContainer>
         
     )
 }
