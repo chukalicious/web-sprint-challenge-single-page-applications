@@ -55,6 +55,21 @@ const Form = () => {
     const orderSchema = yup.object().shape({
         size: yup.string().oneOf(["Personal", "Medium", "Large", "X-Large"], 'Please select a size'),
         sauce: yup.string().required('Please choose a sauce'),
+        pepperoni: yup.string().notRequired(),
+        sausage: yup.string().notRequired(),
+        bacon: yup.string().notRequired(),
+        italian: yup.string().notRequired(),
+        chicken: yup.string().notRequired(),
+        onions: yup.string().notRequired(),
+        pepper: yup.string().notRequired(),
+        tomatoes: yup.string().notRequired(),
+        olives: yup.string().notRequired(),
+        roastedGarlic: yup.string().notRequired(),
+        artichoke: yup.string().notRequired(),
+        cheese: yup.string().notRequired(),
+        pineapple: yup.string().notRequired(),
+        extraCheese: yup.string().notRequired(),
+        instructions: yup.string().notRequired(),
         quantity: yup.string().oneOf(['1', '2', '3', '4'], 'Please select how many pizzas you want')
     })
 
@@ -137,11 +152,10 @@ const Form = () => {
     return (
         <div>
             <h2>Build your own Pizza</h2>
-            <form>
+            <form onSubmit={orderSubmit}>
                 <label htmlFor='size'>
                 Choice of Size:  
-                <select name="size" id="size">
-                
+                <select name="size" id="size" onChange={inputChange}>
                     <option>Please select a size:</option>
                     <option value="personal">Personal</option>
                     <option value="medium">Medium</option>
@@ -175,83 +189,83 @@ const Form = () => {
                 Add Toppings:<br />
                 Add up to 10<br />
                 <label htmlFor="pepperoni">
-                    <input type="checkbox" name="pepperoni" id="pepperoni" />
+                    <input type="checkbox" name="pepperoni" id="pepperoni" onChange={inputChange} />
                     Pepperoni
                 </label>
                 <br /> 
                 <label htmlFor="sausage">
-                    <input type="checkbox" name="sausage" id="sausage" />
+                    <input type="checkbox" name="sausage" id="sausage" onChange={inputChange} />
                     Sausage
                 </label>
                 <br /> 
                 <label htmlFor="bacon">
-                    <input type="checkbox" name="bacon" id="bacon" />
+                    <input type="checkbox" name="bacon" id="bacon" onChange={inputChange} />
                     Canadian Bacon
                 </label>
                 <br /> 
                 <label htmlFor="italian">
-                    <input type="checkbox" name="italian" id="italian" />
+                    <input type="checkbox" name="italian" id="italian" onChange={inputChange} />
                     Spicy Italian Sausage
                 </label>
                 <br /> 
                 <label htmlFor="chicken">
-                    <input type="checkbox" name="chicken" id="chicken" />
+                    <input type="checkbox" name="chicken" id="chicken" onChange={inputChange} />
                     Grilled Chicken
                 </label>
                 <br /> 
                 <label htmlFor="onions">
-                    <input type="checkbox" name="onions" id="onions" />
+                    <input type="checkbox" name="onions" id="onions" onChange={inputChange} />
                     Onions
                 </label>
                 <br /> 
                 <label htmlFor="pepper">
-                    <input type="checkbox" name="pepper" id="pepper" />
+                    <input type="checkbox" name="pepper" id="pepper" onChange={inputChange} />
                     Green Pepper
                 </label>
                 <br /> 
                 <label htmlFor="tomatoes">
-                    <input type="checkbox" name="tomatoes" id="tomatoes" />
+                    <input type="checkbox" name="tomatoes" id="tomatoes" onChange={inputChange} />
                     Diced Tomatoes
                 </label>
                 <br /> 
                 <label htmlFor="olives">
-                    <input type="checkbox" name="olives" id="olives" />
+                    <input type="checkbox" name="olives" id="olives" onChange={inputChange} />
                     Black Olives
                 </label>
                 <br /> 
                 <label htmlFor="roastedGarlic">
-                    <input type="checkbox" name="roastedGarlic" id="roastedGarlic" />
+                    <input type="checkbox" name="roastedGarlic" id="roastedGarlic" onChange={inputChange} />
                     Roasted Garlic
                 </label>
                 <br /> 
                 <label htmlFor="artichoke">
-                    <input type="checkbox" name="artichoke" id="artichoke" />
+                    <input type="checkbox" name="artichoke" id="artichoke" onChange={inputChange} />
                     Artichoke Hearts
                 </label>
                 <br /> 
                 <label htmlFor="cheese">
-                    <input type="checkbox" name="cheese" id="cheese" />
+                    <input type="checkbox" name="cheese" id="cheese" onChange={inputChange} />
                     Three Cheese
                 </label>
                 <br /> 
                 <label htmlFor="pineapple">
-                    <input type="checkbox" name="pineapple" id="pineapple" />
+                    <input type="checkbox" name="pineapple" id="pineapple" onChange={inputChange} />
                     Pineapple
                 </label>
                 <br />  
                 <label htmlFor="extraCheese">
-                    <input type="checkbox" name="extraCheese" id="extraCheese" />
+                    <input type="checkbox" name="extraCheese" id="extraCheese" onChange={inputChange} />
                     Extra Cheese
                 </label>
                 <br /> 
                 {/* gluyten free would go here */}
                 <label htmlFor='instructions'>
                     Special Instructions: <br /> 
-                    <textarea placeholder="Anything else you'd like to add?" name="instructions" id="instructions" />
+                    <textarea placeholder="Anything else you'd like to add?" name="instructions" id="instructions" onChange={inputChange} />
                 </label>
                 <br /> 
                 <label htmlFor='quantity'>
-                    <select id="quantity" name="quantity">
+                    <select id="quantity" name="quantity" onChange={inputChange}>
                         <option>Select Quantity</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
