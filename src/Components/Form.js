@@ -13,7 +13,7 @@ const Form = () => {
     const [orderState, setOrderState] = useState({
         customerName: '',
         size: '',
-        sauce: '',
+        sauce: '', //try adding an option of 'none'
         pepperoni: false,
         sausage: false,
         bacon: false,
@@ -201,7 +201,7 @@ const Form = () => {
                 <input type="radio" name="sauce" id="alfredo" value="alfredo" onChange={inputChange} /> 
                 Spinach Alfredo
                 </label>
-                {/* this below is ovboisyly not working until I'm able to find a way to validate */}
+                {/* this below is obviously not working until I'm able to find a way to validate */}
                 {errors.sauce.length > 0 ? <p>{errors.sauce}</p> : null}
                 <br/>
                 Add Toppings:<br />
