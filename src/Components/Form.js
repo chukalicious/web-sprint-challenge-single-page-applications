@@ -158,7 +158,9 @@ const Form = () => {
             <form onSubmit={orderSubmit}>
                 <label htmlFor='customerName'>
                     Your Name:
-                    <input type="text" name="customerName" id="customerName" value={orderState.customerName} onChange={inputChange}/>
+                    <input type="text" name="customerName" 
+                    data-cy="customerName"
+                    id="customerName" value={orderState.customerName} onChange={inputChange}/>
                 </label>
                 {errors.customerName.length > 0 ? <p>{errors.customerName}</p> : null}
                 <br />
@@ -287,7 +289,7 @@ const Form = () => {
                 </label>
                 {errors.quantity.length > 0 ? <p>{errors.quantity}</p> : null}
                 <br /> 
-                <button >Add to Order</button>
+                <button data-cy="submit">Add to Order</button>
 
                 <pre>{JSON.stringify(ordered, null, 2)}</pre>
 
