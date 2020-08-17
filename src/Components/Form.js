@@ -53,8 +53,8 @@ const Form = () => {
 
     //form schema
     const orderSchema = yup.object().shape({
-        customerName: yup.string().min(2, "Enter at least 2 characters for your name").required("Please provide your name"),
-        size: yup.string().oneOf(["Personal", "Medium", "Large", "X-Large"], 'Please select a size'),
+        customerName: yup.string().required("Please provide your name").min(2, "Enter at least 2 characters for your name"),
+        size: yup.string().oneOf(["persona", "medium", "large", "x-large"], "Please select a size for your pizza"),
         sauce: yup.string().oneOf(['original', 'garlic', 'BBQ', 'alfredo'])/* required('Please choose a sauce'), */,
         pepperoni: yup.string().notRequired(),
         sausage: yup.string().notRequired(),
