@@ -105,10 +105,31 @@ const Form = () => {
 
     //sumbit order
     const orderSubmit = (e) => {
-        e.preventDefault
+        e.preventDefault()
         axios.post('https://reqres.in/api/users', orderState)
         .then((res) => {
             console.log(res.data)
+            setOrdered(res.data)
+            setOrderState({
+                size: '',
+        sauce: '',
+        pepperoni: false,
+        sausage: false,
+        bacon: false,
+        italian: false,
+        chicken: false,
+        onions: false,
+        pepper: false,
+        tomatoes: false,
+        olives: false,
+        roastedGarlic: false,
+        artichocke: false,
+        cheese: false,
+        pineapple: false,
+        extraCheese: false,
+        instructions: '',
+        quantity: ''
+            })
         })
     }
 
