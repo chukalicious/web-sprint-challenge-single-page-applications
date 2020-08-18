@@ -14,7 +14,6 @@ const H1 = styled.h1`
 const ButtonsDiv = styled.div`
     display: flex;
     align-content: flex-end;
-
 `
 
 const Button = styled.button`
@@ -23,8 +22,6 @@ const Button = styled.button`
     padding: 1rem; 
     background-color: black;
     color: white; 
-
-
 `
 
 const NavBar = () => {

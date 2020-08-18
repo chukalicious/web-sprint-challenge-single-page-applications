@@ -13,7 +13,7 @@ const Form = () => {
     const [orderState, setOrderState] = useState({
         customerName: '',
         size: '',
-        sauce: '', //try adding an option of 'none'
+        sauce: '',
         pepperoni: false,
         sausage: false,
         bacon: false,
@@ -169,7 +169,7 @@ const Form = () => {
                 {errors.customerName.length > 0 ? <p>{errors.customerName}</p> : null}
                 <br />
                 <label htmlFor='size'>
-                Choice of Size:  
+                Choice of Size:  <br /> 
                 <select name="size" id="size" onChange={inputChange} value={orderState.size}>
                     <option>Please select a size:</option>
                     <option value="personal">Personal</option>
@@ -182,25 +182,16 @@ const Form = () => {
                 <br /> 
                 Choice of Sauce: 
                 <br /> 
-                <label htmlFor="original">
-                <input type="radio" name="sauce" id="original" value="original" onChange={inputChange}/> 
-                Original Red
+                <label htmlFor='sauce'>
+                <select name="sauce" id="sauce" onChange={inputChange} value={orderState.sauce}>
+                    <option>Please select a sauce:</option>
+                    <option value="original">Original Red</option>
+                    <option value="garlic">Garlic Ranch</option>
+                    <option value="BBQ">BBQ Sauce</option>
+                    <option value="alfredo">Spinach Alfredo</option>
+                </select>
                 </label>
-                <br/>
-                <label htmlFor="garlic">
-                <input type="radio" name="sauce" id="garlic" value="garlic" onChange={inputChange} /> 
-                Garlic Ranch
-                </label>
-                <br/>
-                <label htmlFor="BBQ">
-                <input type="radio" name="sauce" id="BBQ" value="BBQ" onChange={inputChange} /> 
-                BBQ Sauce
-                </label>
-                <br/>
-                <label htmlFor="alfredo">
-                <input type="radio" name="sauce" id="alfredo" value="alfredo" onChange={inputChange} /> 
-                Spinach Alfredo
-                </label>
+                
                 {/* this below is obviously not working until I'm able to find a way to validate */}
                 {errors.sauce.length > 0 ? <p>{errors.sauce}</p> : null}
                 <br/>
