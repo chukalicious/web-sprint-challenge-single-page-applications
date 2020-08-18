@@ -189,7 +189,7 @@ const Form = () => {
                 Choice of Sauce: 
                 <br /> 
                 <label htmlFor='sauce'>
-                <select name="sauce" id="sauce" onChange={inputChange} value={orderState.sauce}>
+                <select name="sauce" id="sauce" cy-data="sauce" onChange={inputChange} value={orderState.sauce}>
                     <option>Please select a sauce:</option>
                     <option value="original">Original Red</option>
                     <option value="garlic">Garlic Ranch</option>
