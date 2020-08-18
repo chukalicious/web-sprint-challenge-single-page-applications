@@ -24,17 +24,16 @@ const Button = styled.button`
 
 const NavBar = () => {
 
-
     return(
         <>
-            <Navigation>
-                <H1>Lambda Eats <span role='img' aria-label='pizza slice emoji'>🍕</span></H1>
-                <ButtonsDiv>
-                    <Link to="/"><Button>Home</Button></Link>
-                    <Link to="/pizza"><Button>Order Your Pizza Here!</Button></Link>
-                </ButtonsDiv>
-            </Navigation>
-            <hr></hr> {/* this is for deleting later */}
+        <Navigation>
+            <H1>Lambda Eats <span role='img' aria-label='pizza slice emoji'>🍕</span></H1>
+            <ButtonsDiv>
+                <Link to="/"><Button>Home</Button></Link>
+                <Link to="/pizza"><Button>Order Your Pizza Here!</Button></Link>
+            </ButtonsDiv>
+        </Navigation>
+        <hr></hr> {/* this is for deleting later */}
         
         </>
     )
