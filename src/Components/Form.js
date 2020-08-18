@@ -7,6 +7,12 @@ const FormContainer = styled.div`
   width: 75%;
   margin: 2rem auto; 
 `
+const ErrorP = styled.p`
+    color: red; 
+    margin: 0;
+    font-size: small;
+`
+ 
 const Form = () => {
 
     //form initial state
@@ -166,7 +172,7 @@ const Form = () => {
                     data-cy="customerName"
                     id="customerName" value={orderState.customerName} onChange={inputChange}/>
                 </label>
-                {errors.customerName.length > 0 ? <p>{errors.customerName}</p> : null}
+                {errors.customerName.length > 0 ? <ErrorP>{errors.customerName}</ErrorP> : null}
                 <br />
                 <label htmlFor='size'>
                 Choice of Size:  <br /> 
@@ -178,7 +184,7 @@ const Form = () => {
                     <option value="x-large">X-Large</option>
                 </select>
                 </label>
-                {errors.size.length > 0 ? <p>{errors.size}</p> : null}
+                {errors.size.length > 0 ? <ErrorP>{errors.size}</ErrorP> : null}
                 <br /> 
                 Choice of Sauce: 
                 <br /> 
@@ -193,7 +199,7 @@ const Form = () => {
                 </label>
                 
                 {/* this below is obviously not working until I'm able to find a way to validate */}
-                {errors.sauce.length > 0 ? <p>{errors.sauce}</p> : null}
+                {errors.sauce.length > 0 ? <ErrorP>{errors.sauce}</ErrorP> : null}
                 <br/>
                 Add Toppings:<br />
                 Add up to 10<br />
@@ -284,7 +290,7 @@ const Form = () => {
                         <option value='4'>4</option>
                     </select>
                 </label>
-                {errors.quantity.length > 0 ? <p>{errors.quantity}</p> : null}
+                {errors.quantity.length > 0 ? <ErrorP>{errors.quantity}</ErrorP> : null}
                 <br /> 
                 <button data-cy="submit" disabled={disabledButton}>Add to Order</button>
 

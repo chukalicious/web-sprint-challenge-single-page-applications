@@ -8,11 +8,10 @@ import Home from "./Components/Home";
 const App = () => {
   return (
     <BrowserRouter>
-      
       <NavBar />
         <Switch>
           <Route path="/pizza" render={() => <Form />} />
-          <Route path="/" component={Home} />
+          <Route path="/" render={() => <Home /> } />
         </Switch>
     </BrowserRouter>
     

@@ -7,7 +7,6 @@ const Navigation = styled.div`
     width: 100%; 
     justify-content: space-between; 
 `
-
 const H1 = styled.h1`
     margin: 1rem 2rem; 
 `
@@ -15,7 +14,6 @@ const ButtonsDiv = styled.div`
     display: flex;
     align-content: flex-end;
 `
-
 const Button = styled.button`
     font-size: large; 
     margin: 2.5rem .5rem 1.5rem 0;
